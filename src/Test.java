@@ -1,18 +1,10 @@
+import java.util.Arrays;
+
 public class Test {
 
 	public static void main(String[] args) {
-		// String data = "Confucius say to ada: Madam, I'm Ada;m ahdjfh fahjfa ";
-		// int len = data.length();
-		// for (int i = 0; i < len; i++) {
-		// System.out.print(data.charAt(i));
-		// }
-		// System.out.println();
-		// for (int i = 0; i < len; i++) {
-		// System.out.print(data.charAt(len - 1 - i));
-		// }
-		// System.out.println("\n****************************");
-		System.out.println("isPal:" + isPal2("   %%#$#c$#$a $%$%$  ac^$%$%*()^%$"));
-
+		String data = "Confucius say to ada: Madam, I'm Ada;m ahdjfh fahjfa ";
+		findPalInStr(data);
 	}
 
 	/**
@@ -40,12 +32,28 @@ public class Test {
 		return true;
 	}
 
-	public static boolean isPal2(String data) {
+	public static String findPalInStr(String data) {
 		char[] letters = new char[data.length()];
+		int len = extractLetters(data, letters);
+		for (int i = 0; i < len; i++)
+			System.out.print(letters[i]);
+		System.out.println();
+//		for (int i = len - 1; i >= 0; i--)
+//			System.out.print(letters[i]);	
+		return null;
+	}
+
+	public static int extractLetters(String data, char[] buffer) {
 		int i = 0;
 		for (char c : data.toCharArray())
 			if (Character.isLetter(c))
-				letters[i++] = Character.toLowerCase(c);
+				buffer[i++] = Character.toLowerCase(c);
+		return i;
+	}
+
+	public static boolean isPal2(String data) {
+		char[] letters = new char[data.length()];
+		int i = extractLetters(data, letters);
 		for (int cursor = 0; cursor < i / 2; cursor++) {
 			if (letters[cursor] != letters[i - 1 - cursor])
 				return false;
