@@ -1,10 +1,10 @@
-import java.util.Arrays;
 
 public class Test {
 
 	public static void main(String[] args) {
-		String data = "Confucius say to ada: Madam, I'm Ada;m ahdjfh fahjfa ";
-		System.out.println(isPalindrome(new char[]{'a', 'b', 'a', 'd', 'a'}, 3, 4));
+		String data = "Confucius say to ada: Madam, I'm Ada;m hdjfh fahjfa ";
+		//String data = "Madam, I'm Ada;";
+		findPalInStr(data);
 	}
 
 	/**
@@ -34,8 +34,8 @@ public class Test {
 
 	public static boolean isPalindrome(char[] data, int start, int end) {
 		int len = (end - start) + 1;
-		for (int cursor = start; cursor < len / 2; cursor++) {
-			if (data[cursor] != data[end - cursor])
+		for (int cursor = start; cursor < start + (len / 2); cursor++) {
+			if (data[cursor] != data[end - cursor + start])
 				return false;
 		}
 		return true;
@@ -44,12 +44,21 @@ public class Test {
 	public static String findPalInStr(String data) {
 		char[] letters = new char[data.length()];
 		int len = extractLetters(data, letters);
+		int max = 8;
+		int bestStart = 0, bestEnd = 0, bestLen = 0;
 		for (int start = 0; start < len; start++) {
 			int end = len - 1;
-			while (end > start) {
-				if (letters[start] == letters[end]) {
-					//if (isPalindrome())
+			int palLen = 0;
+			while (end > start && (palLen = (end - start) + 1)> bestLen) {
+				if (letters[start] == letters[end]) {					
+					if (isPalindrome(letters, start, end)) {
+						bestStart = start;
+						bestEnd = end;
+						bestLen = palLen;
+						break;
+					}
 				}
+				end--;
 			}
 		}
 
@@ -57,6 +66,9 @@ public class Test {
 		// System.out.println();
 		// for (int i = len - 1; i >= 0; i--)
 		// System.out.print(letters[i]);
+		for (int i = bestStart; i <= bestEnd; i++) {
+			System.out.print(letters[i]);
+		}
 		return null;
 	}
 
