@@ -4,7 +4,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		String data = "Confucius say to ada: Madam, I'm Ada;m ahdjfh fahjfa ";
-		findPalInStr(data);
+		System.out.println(isPalindrome(new char[]{'a', 'b', 'a', 'd', 'a'}, 3, 4));
 	}
 
 	/**
@@ -32,14 +32,31 @@ public class Test {
 		return true;
 	}
 
+	public static boolean isPalindrome(char[] data, int start, int end) {
+		int len = (end - start) + 1;
+		for (int cursor = start; cursor < len / 2; cursor++) {
+			if (data[cursor] != data[end - cursor])
+				return false;
+		}
+		return true;
+	}
+
 	public static String findPalInStr(String data) {
 		char[] letters = new char[data.length()];
 		int len = extractLetters(data, letters);
-		for (int i = 0; i < len; i++)
-			System.out.print(letters[i]);
-		System.out.println();
-//		for (int i = len - 1; i >= 0; i--)
-//			System.out.print(letters[i]);	
+		for (int start = 0; start < len; start++) {
+			int end = len - 1;
+			while (end > start) {
+				if (letters[start] == letters[end]) {
+					//if (isPalindrome())
+				}
+			}
+		}
+
+		// System.out.print(letters[i]);
+		// System.out.println();
+		// for (int i = len - 1; i >= 0; i--)
+		// System.out.print(letters[i]);
 		return null;
 	}
 
