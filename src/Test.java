@@ -1,9 +1,8 @@
-
 public class Test {
 
 	public static void main(String[] args) {
 		String data = "Confucius say to ada: Madam, I'm Ada;m hdjfh fahjfa ";
-		//String data = "Madam, I'm Ada;";
+		// String data = "Madam, I'm Ada;";
 		findPalInStr(data);
 	}
 
@@ -42,20 +41,29 @@ public class Test {
 	}
 
 	public static String findPalInStr(String data) {
-		char[] letters = new char[data.length()];
-		int len = extractLetters(data, letters);
-		int max = 8;
+		int dataLen = data.length();
+		char[] letters = new char[dataLen];
+		int[] table = new int[dataLen];
+		int len = 0;
+		for (int i = 0; i < dataLen; i++) {
+			char c = data.charAt(i);
+			if (Character.isLetter(c)) {
+				letters[len] = Character.toLowerCase(c);
+				table[i] = len;
+				len++;
+			}
+		}
+
 		int bestStart = 0, bestEnd = 0, bestLen = 0;
 		for (int start = 0; start < len; start++) {
 			int end = len - 1;
 			int palLen = 0;
-			while (end > start && (palLen = (end - start) + 1)> bestLen) {
-				if (letters[start] == letters[end]) {					
+			while (end > start && (palLen = (end - start) + 1) > bestLen) {
+				if (letters[start] == letters[end]) {
 					if (isPalindrome(letters, start, end)) {
-						bestStart = start;
-						bestEnd = end;
+						bestStart = table[start];
+						bestEnd = table[end];
 						bestLen = palLen;
-						break;
 					}
 				}
 				end--;
@@ -67,7 +75,7 @@ public class Test {
 		// for (int i = len - 1; i >= 0; i--)
 		// System.out.print(letters[i]);
 		for (int i = bestStart; i <= bestEnd; i++) {
-			System.out.print(letters[i]);
+			System.out.print(data.charAt(i));
 		}
 		return null;
 	}
