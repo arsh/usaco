@@ -1,7 +1,7 @@
 public class Test {
 
 	public static void main(String[] args) {
-		String data = "Confucius say to ada: Madam, I'm Ada;m hdjfh fahjfa ";
+		String data = "Confucius say to ada: Ma  dam, I'm Ada;m hdjfh fahjfa ";
 		// String data = "Madam, I'm Ada;";
 		findPalInStr(data);
 	}
@@ -49,11 +49,10 @@ public class Test {
 			char c = data.charAt(i);
 			if (Character.isLetter(c)) {
 				letters[len] = Character.toLowerCase(c);
-				table[i] = len;
+				table[len] = i;
 				len++;
 			}
 		}
-
 		int bestStart = 0, bestEnd = 0, bestLen = 0;
 		for (int start = 0; start < len; start++) {
 			int end = len - 1;
@@ -69,11 +68,7 @@ public class Test {
 				end--;
 			}
 		}
-
-		// System.out.print(letters[i]);
-		// System.out.println();
-		// for (int i = len - 1; i >= 0; i--)
-		// System.out.print(letters[i]);
+		System.out.println(bestLen);
 		for (int i = bestStart; i <= bestEnd; i++) {
 			System.out.print(data.charAt(i));
 		}

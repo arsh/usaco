@@ -1,0 +1,39 @@
+USER: andres santana [andres.4]
+TASK: calfflac
+LANG: JAVA
+
+Compiling...
+Compile: OK
+
+Executing...
+   Test 1: TEST OK [0.115 secs, 29980 KB]
+   Test 2: TEST OK [0.122 secs, 29980 KB]
+   Test 3: TEST OK [0.202 secs, 29980 KB]
+   Test 4: TEST OK [0.180 secs, 29980 KB]
+   Test 5: TEST OK [0.187 secs, 29980 KB]
+   Test 6: TEST OK [0.223 secs, 29980 KB]
+   Test 7: TEST OK [0.230 secs, 29980 KB]
+   Test 8: TEST OK [0.871 secs, 29980 KB]
+
+All tests OK.
+Your program ('calfflac') produced all correct answers!  This is your
+submission #8 for this problem.  Congratulations!
+
+Here are the test data inputs:
+
+------- test 1 -------
+Confucius say: Madam, I'm Adam.
+
+------- test 2 -------
+LupgTU{YtMzkojlNfWiuRXReZYzcoOwuGuqo{WEzQZe[LqoHxgNsDdoixRIReZplGXKgcSJthF[gcWkC
+
+WinQvfIIgcikm[lk[kFB
+
+------- test 3 -------
+------- test 4 -------
+------- test 5 -------
+------- test 6 -------
+------- test 7 -------
+------- test 8 -------
+Keep up the good work!
+Thanks for your submission!
