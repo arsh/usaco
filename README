@@ -1,2 +1,5 @@
 This is my Eclipse project for USACO (http://train.usaco.org/usacogate) training program.
 Here I keep all the solutions to the problem I have made, plus the Input and Output files.
+In the default package I keep the working problems, testing or templates files. After I've completed a problem
+I move it to the "done" package. In the "IOs" folder you will find a folder for each problem containing Inputs
+and Ouputs and the grade of the problem when submitted to USACO.
